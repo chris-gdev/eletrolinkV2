@@ -1,0 +1,42 @@
+{
+  "name": "blocked_dates",
+  "type": "object",
+  "required": [
+    "date",
+    "reason",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "date": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "Data bloqueada para agendamento (ISO 8601 format)"
+    },
+    "reason": {
+      "bsonType": "string",
+      "description": "Motivo do bloqueio (ex: feriado, manutenção, etc.)"
+    },
+    "isFullDay": {
+      "bsonType": "bool",
+      "description": "Se true, bloqueia o dia inteiro; se false, apenas horários específicos"
+    },
+    "blockedHours": {
+      "bsonType": "array",
+      "description": "Lista de horários bloqueados no formato HH:mm (ex: ['09:00', '10:00'])",
+      "items": {
+        "bsonType": "string"
+      }
+    },
+    "createdAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "Data de criação do bloqueio"
+    },
+    "updatedAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "Data da última atualização"
+    }
+  }
+}

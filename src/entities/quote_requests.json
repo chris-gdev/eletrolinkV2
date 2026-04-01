@@ -1,0 +1,114 @@
+{
+  "name": "quote_requests",
+  "type": "object",
+  "required": [
+    "name",
+    "email",
+    "phone",
+    "serviceType",
+    "projectType",
+    "status",
+    "createdAt"
+  ],
+  "properties": {
+    "name": {
+      "bsonType": "string",
+      "description": "Nome do cliente"
+    },
+    "email": {
+      "bsonType": "string",
+      "description": "Email do cliente"
+    },
+    "phone": {
+      "bsonType": "string",
+      "description": "Telefone do cliente"
+    },
+    "street": {
+      "bsonType": "string",
+      "description": "Rua do endereço"
+    },
+    "number": {
+      "bsonType": "string",
+      "description": "Número do endereço"
+    },
+    "neighborhood": {
+      "bsonType": "string",
+      "description": "Bairro"
+    },
+    "city": {
+      "bsonType": "string",
+      "description": "Cidade"
+    },
+    "cep": {
+      "bsonType": "string",
+      "description": "CEP"
+    },
+    "serviceType": {
+      "bsonType": "string",
+      "enum": [
+        "Instalações Residenciais",
+        "Instalações Comerciais",
+        "Manutenção Preventiva",
+        "Manutenção Corretiva",
+        "Automação Residencial",
+        "Automação Comercial",
+        "Projeto Elétrico",
+        "Laudos e Certificações"
+      ],
+      "description": "Tipo de serviço solicitado"
+    },
+    "projectType": {
+      "bsonType": "string",
+      "enum": [
+        "Obra Nova",
+        "Reforma",
+        "Ampliação",
+        "Manutenção"
+      ],
+      "description": "Tipo de projeto"
+    },
+    "description": {
+      "bsonType": "string",
+      "description": "Descrição detalhada do projeto"
+    },
+    "scheduledDate": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "Data e hora agendada para a visita (ISO 8601 format)"
+    },
+    "status": {
+      "bsonType": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "completed",
+        "in_progress"
+      ],
+      "description": "Status da solicitação"
+    },
+    "estimatedValue": {
+      "bsonType": "number",
+      "minimum": 0,
+      "description": "Valor estimado do orçamento"
+    },
+    "notes": {
+      "bsonType": "string",
+      "description": "Observações adicionais"
+    },
+    "userId": {
+      "bsonType": "string",
+      "description": "ID do usuário que fez a solicitação"
+    },
+    "createdAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "Data de criação da solicitação"
+    },
+    "updatedAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "Data da última atualização"
+    }
+  }
+}

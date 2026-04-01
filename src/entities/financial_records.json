@@ -1,0 +1,75 @@
+
+{
+  "name": "financial_records",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["record_id", "type", "amount", "category", "date", "created_at"],
+        "properties": {
+          "record_id": {
+            "bsonType": "string",
+            "description": "Identificador único do registro financeiro"
+          },
+          "type": {
+            "bsonType": "string",
+            "enum": ["receita", "despesa"],
+            "description": "Tipo de movimentação financeira"
+          },
+          "amount": {
+            "bsonType": "number",
+            "description": "Valor da movimentação"
+          },
+          "category": {
+            "bsonType": "string",
+            "enum": ["servicos", "materiais", "equipamentos", "salarios", "marketing", "impostos", "aluguel", "outros"],
+            "description": "Categoria da movimentação"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Descrição da movimentação"
+          },
+          "order_id": {
+            "bsonType": "string",
+            "description": "ID da ordem de serviço relacionada (se aplicável)"
+          },
+          "payment_method": {
+            "bsonType": "string",
+            "enum": ["dinheiro", "cartao_credito", "cartao_debito", "pix", "transferencia", "boleto"],
+            "description": "Método de pagamento"
+          },
+          "date": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data da movimentação"
+          },
+          "invoice_number": {
+            "bsonType": "string",
+            "description": "Número da nota fiscal"
+          },
+          "supplier": {
+            "bsonType": "string",
+            "description": "Fornecedor (para despesas)"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Responsável pelo registro"
+          },
+          "created_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação do registro"
+          },
+          "updated_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data da última atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

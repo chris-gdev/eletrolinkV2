@@ -1,0 +1,99 @@
+
+{
+  "name": "service_orders",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["order_id", "customer_name", "service_type", "status", "total_value", "created_at"],
+        "properties": {
+          "order_id": {
+            "bsonType": "string",
+            "description": "Identificador único da ordem de serviço"
+          },
+          "customer_name": {
+            "bsonType": "string",
+            "description": "Nome do cliente"
+          },
+          "customer_email": {
+            "bsonType": "string",
+            "description": "Email do cliente"
+          },
+          "customer_phone": {
+            "bsonType": "string",
+            "description": "Telefone do cliente"
+          },
+          "service_type": {
+            "bsonType": "string",
+            "enum": ["instalacao_residencial", "instalacao_comercial", "manutencao", "emergencia", "automacao", "auditoria"],
+            "description": "Tipo de serviço solicitado"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Descrição detalhada do serviço"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["pendente", "aprovado", "em_andamento", "concluido", "cancelado"],
+            "description": "Status atual da ordem"
+          },
+          "total_value": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Valor total do serviço"
+          },
+          "estimated_hours": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Horas estimadas para conclusão"
+          },
+          "priority": {
+            "bsonType": "string",
+            "enum": ["baixa", "media", "alta", "urgente"],
+            "description": "Prioridade do serviço"
+          },
+          "technician_assigned": {
+            "bsonType": "string",
+            "description": "Técnico responsável"
+          },
+          "materials_cost": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Custo dos materiais"
+          },
+          "labor_cost": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Custo da mão de obra"
+          },
+          "completion_date": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de conclusão do serviço"
+          },
+          "notes": {
+            "bsonType": "string",
+            "description": "Observações adicionais"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador da ordem"
+          },
+          "created_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação da ordem"
+          },
+          "updated_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data da última atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
